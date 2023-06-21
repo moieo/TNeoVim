@@ -18,6 +18,41 @@
     └── packer_compiled.lua # Packer 插件管理工具
 ```
 
+# 安装过程
+## 安装 NeoVim
+Debian/Ubuntu
+```bash
+sudo apt-get install neovim
+```
+
+RHEL/Fedora/CentOS
+```bash
+sudo yum install neovim
+```
+
+Arch Linux
+```bash
+sudo pacman -S neovim
+```
+
+## 安装 Packer
+```bash
+mkdir -p $HOME/.local/share/nvim/site/pack/packer/start
+git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+## 克隆项目
+```bash
+mkdir -p $HOME/.config
+git clone https://gitee.com/moieo/neo-vim-configure $HOME/.config/nvim
+```
+
+## 首次启动 NeoVim
+```bash
+nvim :PackerInstall
+```
+首次启动将下载需要的插件以及语法补全所需文件，请保持网络通畅
+
 # 特别感谢
 [Packer](https://github.com/wbthomason/packer.nvim)
 
