@@ -1,4 +1,5 @@
 # 文件结构
+
 ```
 ├── README.MD # 当前的文档
 ├── init.lua # 入口文件，Packer 安装插件在此文件配置
@@ -11,7 +12,7 @@
 │   │   └── keybindings.lua # LSP 的热键
 │   ├── lualine-config.lua # lualine插件，底部状态栏配置文件
 │   ├── navic-config.lua # Navic插件的配置文件
-│   ├── null-ls-config.lua # null-ls插件，语法格式化插件配置文件 
+│   ├── null-ls-config.lua # null-ls插件，语法格式化插件配置文件
 │   ├── nvimtree-config.lua # NeoVim 自带文件树配置文件
 │   └── tabline-config.lua # 标签栏配置文件
 └── plugin
@@ -19,41 +20,51 @@
 ```
 
 # 安装过程
+
 ## 安装 NeoVim
+
 Debian/Ubuntu
+
 ```bash
 sudo apt-get install neovim
 ```
 
 RHEL/Fedora/CentOS
+
 ```bash
 sudo yum install neovim
 ```
 
 Arch Linux
+
 ```bash
 sudo pacman -S neovim
 ```
 
 ## 安装 Packer
+
 ```bash
 mkdir -p $HOME/.local/share/nvim/site/pack/packer/start
 git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
 ## 克隆项目
+
 ```bash
 mkdir -p $HOME/.config
 git clone https://gitee.com/moieo/neo-vim-configure $HOME/.config/nvim
 ```
 
 ## 首次启动 NeoVim
+
 ```bash
 nvim :PackerInstall
 ```
+
 首次启动将下载需要的插件以及语法补全所需文件，请保持网络通畅
 
 # 特别感谢
+
 [Packer](https://github.com/wbthomason/packer.nvim)
 
 [Tokyonight](https://github.com/folke/tokyonight.nvim)
