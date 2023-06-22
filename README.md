@@ -90,15 +90,25 @@ nvim :PackerInstall
 # 该配置支持的开发环境
 根据自己目前的需求，配置完成后可以支持以下开发
 > Python
+
 > C/C++
+
 > Nodejs
+
 > Vue
+
 > React
+
 > Lua
+
 > Golang
+
 > Shell
+
 > Java
+
 > JSON
+
 > TOML
 
 # 特别感谢
