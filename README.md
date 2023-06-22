@@ -25,9 +25,10 @@
 想要使该配置正常工作，需要有 Nodejs v16 以上 及 Python3.7 以上的支持
 
 安装所需的 Nodejs 包
+prettier 用于格式化代码，eslint 用于 Nodejs 类项目的语法检查
 
 ```bash
-npm install --global neovim
+npm install --global neovim prettier eslint
 ```
 
 安装所需的 Python 包
@@ -110,6 +111,8 @@ nvim :PackerInstall
 > JSON
 
 > TOML
+
+> MarkDown
 
 # 特别感谢
 
