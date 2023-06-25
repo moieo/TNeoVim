@@ -51,7 +51,7 @@ require("mason-lspconfig").setup({
 		"gopls",
 		"kotlin_language_server",
 		"volar",
-		"perlnavigator"
+		"perlnavigator",
 	},
 })
 
@@ -65,7 +65,7 @@ local servers = {
 	"bashls",
 	"gopls",
 	"volar",
-	"perlnavigator"
+	"perlnavigator",
 }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
@@ -86,7 +86,7 @@ lspconfig.lua_ls.setup({
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
+				globals = { "vim", "opt" },
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
@@ -114,6 +114,18 @@ lspconfig.kotlin_language_server.setup({
 		},
 	},
 })
+
+lspconfig.tsserver.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	init_options = {
+		preferences = {
+      -- fix: File is a CommonJS module; it may be converted to an ES6 module.
+			disableSuggestions = true,
+		},
+	},
+})
+
 -- after start lsp server config....
 -- change info style of lsp
 require("lsp.handlers").setup()
