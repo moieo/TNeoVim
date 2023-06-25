@@ -117,6 +117,5 @@ lspconfig.kotlin_language_server.setup({
 -- after start lsp server config....
 -- change info style of lsp
 require("lsp.handlers").setup()
--- after require("lsp.handlers").setup()...
 -- start cmp
 require("lsp.cmp")

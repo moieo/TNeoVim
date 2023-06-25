@@ -88,6 +88,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- vim.o.foldmethod = 'indent'
 
 -- 文件类型工具
+--[[
 local setFileType = function(pattern, type_)
 	vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		pattern = pattern,
@@ -95,4 +96,4 @@ local setFileType = function(pattern, type_)
 			vim.o.filetype = type_
 		end,
 	})
-end
+end ]]
