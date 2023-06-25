@@ -120,8 +120,20 @@ lspconfig.tsserver.setup({
 	capabilities = capabilities,
 	init_options = {
 		preferences = {
-      -- fix: File is a CommonJS module; it may be converted to an ES6 module.
+			-- fix: File is a CommonJS module; it may be converted to an ES6 module.
 			disableSuggestions = true,
+		},
+	},
+})
+
+lspconfig.jsonls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		json = {
+			comments = {
+				lineComment = "//",
+			},
 		},
 	},
 })
