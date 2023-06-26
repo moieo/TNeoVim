@@ -40,7 +40,6 @@ require("lazy").setup({
   },
   {
     "williamboman/mason.nvim",
-    lazy = true,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
@@ -51,7 +50,6 @@ require("lazy").setup({
   },
   {
     "hrsh7th/nvim-cmp",
-    lazy = true,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp", --neovim 内置 LSP 客户端的 nvim-cmp 源
       --以下插件可选，可以根据个人喜好删减
@@ -79,7 +77,6 @@ require("lazy").setup({
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -109,7 +106,6 @@ require("lazy").setup({
   -- Terminal 终端
   {
     "s1n7ax/nvim-terminal",
-    lazy = true,
     config = function()
       require("terminal-config")
     end,
@@ -118,7 +114,6 @@ require("lazy").setup({
   -- 错误提示
   {
     "folke/trouble.nvim",
-    lazy = true,
     config = function()
       require("trouble-config")
     end,
