@@ -65,8 +65,10 @@ vim.api.nvim_set_keymap("n", "zfm", "<cmd>lua vim.lsp.buf.format { async = true 
 -- vim.api.nvim_set_keymap("n", "zgh", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {})
 
 -- 打开缓冲区浏览器
-vim.api.nvim_set_keymap("n", "zb", "<cmd>ToggleBufExplorer<CR>", {})
+vim.api.nvim_set_keymap("n", "zb", "<cmd>BufExplorerVerticalSplit<CR>", {})
 
+-- 文件搜索热键
+vim.api.nvim_set_keymap("n", "zs", "<cmd>FzfLua files<CR>", {})
 -- 恢复缓冲区光标位置
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = "*",

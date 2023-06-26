@@ -114,6 +114,9 @@ require("packer").startup(function(use)
 
   -- 缓冲区浏览器
   use("jlanzarotta/bufexplorer")
+
+  -- 文件搜索工具
+  use("ibhagwan/fzf-lua")
 end)
 -- 初始化配置
 require("initialization")
