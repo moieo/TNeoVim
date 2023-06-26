@@ -108,7 +108,7 @@ lspconfig.kotlin_language_server.setup({
 		kotlin = {
 			compiler = {
 				jvm = {
-					target = "1.8",
+					target = "17",
 				},
 			},
 		},

@@ -62,7 +62,10 @@ vim.api.nvim_set_keymap("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "zfm", "<cmd>lua vim.lsp.buf.format { async = true   }<CR>", { silent = true })
 
-vim.api.nvim_set_keymap("n", "zgh", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()", {})
+-- vim.api.nvim_set_keymap("n", "zgh", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {})
+
+-- 打开缓冲区浏览器
+vim.api.nvim_set_keymap("n", "zb", "<cmd>ToggleBufExplorer<CR>", {})
 
 -- 恢复缓冲区光标位置
 vim.api.nvim_create_autocmd("BufReadPost", {

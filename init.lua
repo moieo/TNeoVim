@@ -111,6 +111,9 @@ require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons",
 		},
 	})
+
+  -- 缓冲区浏览器
+  use("jlanzarotta/bufexplorer")
 end)
 -- 初始化配置
 require("initialization")
