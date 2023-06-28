@@ -1,8 +1,8 @@
 -- By: Moieo
 -- 主题
-vim.cmd([[colorscheme tokyonight-storm]])
-
-vim.opt.termguicolors = true
+-- vim.cmd([[colorscheme tokyonight-storm]])
+--
+-- vim.opt.termguicolors = true
 -- 显示行号
 vim.o.number = 1
 -- 高亮光标所在列
@@ -43,7 +43,7 @@ vim.g["python_highlight_all"] = 1
 vim.g["vue_pre_processors"] = { "pug", "scss" }
 -- vim.api.nvim_set_keymap('', '<c-f>', ':Neoformat<CR>', { noremap = true })
 -- 任务插件
-require("overseer").setup()
+-- require("overseer").setup()
 -- 任务管理器
 vim.api.nvim_set_keymap("n", "ztt", ":OverseerToggle<CR>", {})
 vim.api.nvim_set_keymap("n", "zto", ":OverseerRun<CR>", {})
