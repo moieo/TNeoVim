@@ -80,4 +80,4 @@ nvim
 
 [Vista](https://github.com/liuchengxu/vista.vim)
 
-...除以上项目外，请打开 `./init.lua` 查看 `packer` 部分
+所有功能均为第三方开源插件，本项目只将功能组合。除以上例举外，还引用了许多其他开源项目
