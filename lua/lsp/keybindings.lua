@@ -20,6 +20,7 @@ pluginKeys.maplsp = function(bufnr)
 	vim.keymap.set("n", "go", vim.diagnostic.open_float, bufopts)
 	vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, bufopts)
 	vim.keymap.set("n", "gn", vim.diagnostic.goto_next, bufopts)
+  vim.keymap.set("n", "gq", vim.diagnostic.setloclist, bufopts)
 	-- vim.keymap.set('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', bufopts)
 	-- leader + =
 	-- vim.keymap.set("n", "<leader>=", vim.lsp.buf.formatting, bufopts)

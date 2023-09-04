@@ -37,7 +37,7 @@ M.setup = function()
 	}
 
 	vim.diagnostic.config(config)
-  vim.api.nvim_command('autocmd CursorMoved * lua vim.diagnostic.open_float()')
+  -- vim.api.nvim_command('autocmd CursorMoved * lua vim.diagnostic.open_float()')
 	-- set the popup window border
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded",
