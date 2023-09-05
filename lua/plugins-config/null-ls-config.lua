@@ -1,5 +1,21 @@
 -- By: Moieo
 local null_ls = require("null-ls")
+local helpers = require("null-ls.helpers")
+
+-- 设置文件类型
+vim.cmd('autocmd BufNewFile,BufRead Caddyfile setlocal filetype=Caddyfile')
+
+-- 创建 Caddy 格式化器
+local caddy_fmt = helpers.make_builtin({
+  method = null_ls.methods.FORMATTING,
+  filetypes = { "Caddyfile" },
+  generator_opts = {
+    command = "caddy",
+    args = { "fmt", "$FILENAME" },
+    format = "raw",
+  },
+  factory = helpers.formatter_factory,
+})
 
 null_ls.setup({
   sources = {
@@ -43,15 +59,16 @@ null_ls.setup({
     null_ls.builtins.formatting.cmake_format,
     null_ls.builtins.formatting.nginx_beautifier,
     null_ls.builtins.formatting.sqlformat,
+    null_ls.builtins.diagnostics.shellcheck.with({
+      diagnostic_config = {
+        -- see :help vim.diagnostic.config()
+        underline = true,
+        virtual_text = false,
+        signs = true,
+        update_in_insert = false,
+        severity_sort = true,
+      },
+    }),
+    caddy_fmt,
   },
-  null_ls.builtins.diagnostics.shellcheck.with({
-    diagnostic_config = {
-      -- see :help vim.diagnostic.config()
-      underline = true,
-      virtual_text = false,
-      signs = true,
-      update_in_insert = false,
-      severity_sort = true,
-    },
-  }),
 })
