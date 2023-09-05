@@ -29,7 +29,6 @@ null_ls.setup({
     null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.cpplint,
     null_ls.builtins.diagnostics.jsonlint,
-    null_ls.builtins.diagnostics.ktlint,
     null_ls.builtins.diagnostics.perlimports,
     null_ls.builtins.diagnostics.php,
     null_ls.builtins.diagnostics.yamllint,

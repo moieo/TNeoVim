@@ -63,4 +63,5 @@ return {
       require("plugins-config.null-ls-config")
     end,
   },
+  "khaveesh/vim-fish-syntax", -- fish shell syntax
 }
