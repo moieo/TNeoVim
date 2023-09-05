@@ -23,10 +23,18 @@ return {
       -- "f3fora/cmp-spell", --nvim-cmp 的拼写源基于 vim 的拼写建议
       "hrsh7th/cmp-emoji", --输入: 可以显示表情
       "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-      "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
+      {
+        "L3MON4D3/LuaSnip",
+        version = "2.*",
+        build = "make install_jsregexp",
+        dependencies = {
+          "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+          "rafamadriz/friendly-snippets", --代码段合集
+        },
+        config = function()
+          require("plugins-config.luasnip-config")
+        end,
+      },
     },
   },
   {

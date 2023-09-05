@@ -3,7 +3,7 @@ return {
     "stevearc/overseer.nvim",
     config = function()
       require("overseer").setup()
-    end
+    end,
   },
   --缓冲区浏览器
   "jlanzarotta/bufexplorer",

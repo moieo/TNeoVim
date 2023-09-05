@@ -32,13 +32,13 @@ local kind_icons = {
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
-local cmp = require('cmp')
+local cmp = require("cmp")
 
-cmp.setup{
-	snippet = {
+cmp.setup({
+  snippet = {
     expand = function(args)
-		  require('luasnip').lsp_expand(args.body)
-			vim.fn["vsnip#anonymous"](args.body)
+      require("luasnip").lsp_expand(args.body)
+      -- vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   window = {
@@ -60,7 +60,7 @@ cmp.setup{
         else
           fallback()
         end
-      end
+      end,
     }),
     ["<S-Tab>"] = cmp.mapping({
       c = function()
@@ -76,16 +76,16 @@ cmp.setup{
         else
           fallback()
         end
-      end
+      end,
     }),
-    ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
-    ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
-    ['<C-n>'] = cmp.mapping({
+    ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
+    ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
+    ["<C-n>"] = cmp.mapping({
       c = function()
         if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
         else
-          vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
+          vim.api.nvim_feedkeys(t("<Down>"), "n", true)
         end
       end,
       i = function(fallback)
@@ -94,14 +94,14 @@ cmp.setup{
         else
           fallback()
         end
-      end
+      end,
     }),
-    ['<C-p>'] = cmp.mapping({
+    ["<C-p>"] = cmp.mapping({
       c = function()
         if cmp.visible() then
           cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
         else
-          vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
+          vim.api.nvim_feedkeys(t("<Up>"), "n", true)
         end
       end,
       i = function(fallback)
@@ -110,21 +110,21 @@ cmp.setup{
         else
           fallback()
         end
-      end
+      end,
     }),
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     --['<C-e>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
     --['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
-    ['<CR>'] = cmp.mapping({
+    ["<CR>"] = cmp.mapping({
       i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
       c = function(fallback)
         if cmp.visible() then
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true})
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
         else
           fallback()
         end
-      end
+      end,
     }),
   },
 
@@ -135,47 +135,49 @@ cmp.setup{
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
-        ultisnips = "[Snippet]",
+        luasnip = "[LuaSnip]",
         buffer = "[Buffer]",
         path = "[Path]",
+        emoji = "[Emoji]"
       })[entry.source.name]
       return vim_item
     end,
   },
 
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-    { name = 'luasnip' },
+    { name = "nvim_lsp" },
+    -- { name = "vsnip" },
+    { name = "luasnip" },
+    { name = "emoji" },
   }, {
-    { name = 'buffer' },
-    { name = 'path' },
-  })
-}
+    { name = "buffer" },
+    { name = "path" },
+  }),
+})
 
 -- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
+cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
-    { name = 'buffer' },
-  })
+    { name = "buffer" },
+  }),
 })
 
 -- Use buffer source foj `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
+cmp.setup.cmdline("/", {
   completion = { autocomplete = false },
   sources = {
-    { name = 'buffer' }
-  }
+    { name = "buffer" },
+  },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
   completion = { autocomplete = false },
   sources = cmp.config.sources({
-    { name = 'path' }
+    { name = "path" },
   }, {
-    { name = 'cmdline' }
-  })
+    { name = "cmdline" },
+  }),
 })
