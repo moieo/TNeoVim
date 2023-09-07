@@ -60,7 +60,7 @@ vim.api.nvim_set_keymap("n", "z<right>", "<C-w><right>", { noremap = true, silen
 -- 内置终端
 vim.api.nvim_set_keymap("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "zfm", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "zfm", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR>", { silent = true })
 
 -- vim.api.nvim_set_keymap("n", "zgh", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {})
 
@@ -72,19 +72,19 @@ vim.api.nvim_set_keymap("n", "zs", "<cmd>FzfLua files<CR>", {})
 
 -- 恢复缓冲区光标位置
 vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = "*",
-	callback = function()
-		if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
-			vim.fn.setpos(".", vim.fn.getpos("'\""))
-			vim.cmd("silent! foldopen")
-		end
-	end,
+  pattern = "*",
+  callback = function()
+    if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.fn.setpos(".", vim.fn.getpos("'\""))
+      vim.cmd("silent! foldopen")
+    end
+  end,
 })
 
 -- 保存时格式化代码
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function() end,
+  pattern = "*",
+  callback = function() end,
 })
 
 -- 代码折叠
