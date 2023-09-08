@@ -56,7 +56,6 @@ local servers = {
   "volar",
   "html",
   "perlnavigator",
-  "rust_analyzer",
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -166,6 +165,18 @@ lspconfig.emmet_language_server.setup({
     variables = {},
     --- @type string[]
     excludelanguages = {},
+  },
+})
+
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      diagnostics = {
+        enable = true,
+      },
+    },
   },
 })
 
