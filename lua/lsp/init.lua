@@ -40,6 +40,7 @@ require("mason-lspconfig").setup({
     "volar",
     "html",
     "perlnavigator",
+    "rust_analyzer",
   },
 })
 
@@ -55,6 +56,7 @@ local servers = {
   "volar",
   "html",
   "perlnavigator",
+  "rust_analyzer",
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
