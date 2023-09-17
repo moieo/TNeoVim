@@ -66,7 +66,6 @@ return {
   "khaveesh/vim-fish-syntax", -- fish shell syntax
   {
     "nvim-treesitter/nvim-treesitter",
-    cmd = "TSUpdate",
     config = function()
       require 'nvim-treesitter.configs'.setup {
         ensure_installed = { "nu" },
@@ -79,6 +78,12 @@ return {
           additional_vim_regex_highlighting = false,
         },
       }
+    end
+  },
+  {
+    "LhKipp/nvim-nu",
+    config = function ()
+      require'nu'.setup{}
     end
   }
 }
