@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "https://ghproxy.com/github.com/folke/lazy.nvim.git",
+    "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
   })
@@ -20,7 +20,7 @@ require("lazy").setup({
   git = {
     log = { "-8" },
     timeout = 120,
-    url_format = "https://ghproxy.com/github.com/%s.git",
+    url_format = "https://github.com/%s.git",
     filter = true,
   },
 })
