@@ -4,19 +4,19 @@
 --
 -- vim.opt.termguicolors = true
 -- 显示行号
-vim.o.number = 1
+vim.o.number = true
 -- 高亮光标所在列
 -- vim.o.cursorcolumn
 -- tab 宽度
 vim.o.tabstop = 2
 -- 高亮光标所在行
-vim.o.cursorline = 1
+vim.o.cursorline = true
 -- 自动缩进时,缩进长度
 vim.o.shiftwidth = 2
 -- 输入Tab字符时,自动替换成空格
--- vim.o.expandtab = 1
+-- vim.o.expandtab = true
 -- 自动缩进
-vim.o.autoindent = 1
+vim.o.autoindent = true
 -- softtabstop的值为负数,会使用shiftwidth的值,两者保持一致,方便统一缩进.
 vim.o.softtabstop = -1
 -- 空格代替tab

@@ -68,7 +68,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require 'nvim-treesitter.configs'.setup {
-        ensure_installed = { "nu" },
+        ensure_installed = {},
         sync_install = false,
         auto_install = false,
         ignore_install = {},
@@ -78,12 +78,6 @@ return {
           additional_vim_regex_highlighting = false,
         },
       }
-    end
-  },
-  {
-    "LhKipp/nvim-nu",
-    config = function ()
-      require'nu'.setup{}
     end
   }
 }
