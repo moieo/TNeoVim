@@ -43,7 +43,7 @@ sudo pacman -S neovim
 
 ```bash
 mkdir -p $HOME/.config
-git clone https://gitee.com/moieo/tneovim $HOME/.config/nvim
+git clone https://moieo@bitbucket.org/moieo/tneovim.git $HOME/.config/nvim
 ```
 
 ## 首次启动 NeoVim
