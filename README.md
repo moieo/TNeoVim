@@ -72,12 +72,99 @@ nvim
 
 # 特别感谢
 
-[Packer](https://github.com/wbthomason/packer.nvim)
+## UI 相关插件
 
-[Tokyonight](https://github.com/folke/tokyonight.nvim)
+[tokyonight]: https://github.com/folke/tokyonight.nvim
+[nvim-web-devicons]: https://github.com/kyazdani42/nvim-web-devicons
+[lualine.nvim]: https://github.com/nvim-lualine/lualine.nvim
+[tabline.nvim]: https://github.com/kdheepak/tabline.nvim
+[indentLine]: https://github.com/Yggdroot/indentLine
 
-[Lua Line](https://github.com/nvim-lualine/lualine.nvim)
+|  [tokyonight]  | [nvim-web-devicons] | [lualine.nvim] |
+| :------------: | :-----------------: | :------------: |
+| [tabline.nvim] |    [indentLine]     |                |
 
-[Vista](https://github.com/liuchengxu/vista.vim)
+## 工具类插件
+
+[overseer.nvim]: https://github.com/stevearc/overseer.nvim
+[bufexplorer]: https://github.com/jlanzarotta/bufexplorer
+[fzf-lua]: https://github.com/ibhagwan/fzf-lua
+[nvim-terminal]: https://github.com/s1n7ax/nvim-terminal
+[nvim-tree.lua]: https://github.com/nvim-tree/nvim-tree.lua
+[vista.vim]: https://github.com/liuchengxu/vista.vim
+[auto-pairs]: https://github.com/jiangmiao/auto-pairs
+
+| [overseer.nvim] |  [bufexplorer]  |  [fzf-lua]  |
+| :-------------: | :-------------: | :---------: |
+| [nvim-terminal] | [nvim-tree.lua] | [vista.vim] |
+|  [auto-pairs]   |
+
+## LSP 语法补全插件
+
+[mason.nvim]: https://github.com/williamboman/mason.nvim
+[mason-lspconfig.nvim]: https://github.com/williamboman/mason-lspconfig.nvim
+[nvim-lspconfig]: https://github.com/neovim/nvim-lspconfig
+[nvim-cmp]: https://github.com/hrsh7th/nvim-cmp
+[cmp-nvim-lsp]: https://github.com/hrsh7th/cmp-nvim-lsp
+[lspkind-nvim]: https://github.com/onsails/lspkind-nvim
+[cmp-buffer]: https://github.com/hrsh7th/cmp-buffer
+[cmp-nvim-lua]: https://github.com/hrsh7th/cmp-nvim-lua
+[cmp-path]: https://github.com/hrsh7th/cmp-path
+[cmp-emoji]: https://github.com/hrsh7th/cmp-emoji
+[cmp-cmdline]: https://github.com/hrsh7th/cmp-cmdline
+[LuaSnip]: https://github.com/L3MON4D3/LuaSnip
+[cmp_luasnip]: https://github.com/saadparwaiz1/cmp_luasnip
+[friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
+[trouble.nvim]: https://github.com/folke/trouble.nvim
+[typescript-vim]: https://github.com/leafgarland/typescript-vim
+[vim-json]: https://github.com/leshill/vim-json
+[python-syntax]: https://github.com/vim-python/python-syntax
+[vim-vue]: https://github.com/posva/vim-vue
+[kotlin-vim]: https://github.com/udalov/kotlin-vim
+[nvim-navic]: https://github.com/SmiteshP/nvim-navic
+[null-ls.nvim]: https://github.com/jose-elias-alvarez/null-ls.nvim
+[plenary.nvim]: https://github.com/nvim-lua/plenary.nvim
+[vim-fish-syntax]: https://github.com/khaveesh/vim-fish-syntax
+[nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
+
+|   [mason.nvim]    | [mason-lspconfig.nvim] | [nvim-lspconfig]  |
+| :---------------: | :--------------------: | :---------------: |
+|    [nvim-cmp]     |     [cmp-nvim-lsp]     |  [lspkind-nvim]   |
+|   [cmp-buffer]    |     [cmp-nvim-lua]     |    [cmp-path]     |
+|    [cmp-emoji]    |     [cmp-cmdline]      |     [LuaSnip]     |
+|   [cmp_luasnip]   |  [friendly-snippets]   |  [trouble.nvim]   |
+| [typescript-vim]  |       [vim-json]       |  [python-syntax]  |
+|     [vim-vue]     |      [kotlin-vim]      |   [nvim-navic]    |
+|  [null-ls.nvim]   |     [plenary.nvim]     | [vim-fish-syntax] |
+| [nvim-treesitter] |                        |
 
 所有功能均为第三方开源插件，本项目只将功能组合。除以上例举外，还引用了许多其他开源项目
+
+# 已知问题解决方案
+C/C++ 使用静态分析器为 `clangd`
+
+当你编写 C/C++ 代码时无法找到头文件
+
+请在 `$HOME/.clangd` 文件编辑如下内容
+
+```yaml
+CompileFlags:
+  Add: [
+    "-I/usr/include"
+  ]
+
+Diagnostics:
+  UnusedIncludes: None
+
+InlayHints:
+  BlockEnd: No
+  Designators: No
+  Enabled: Yes
+  ParameterNames: No
+  DeducedTypes: Yes
+  TypeNameLimit: 20
+```
+
+以上配置仅在 `Fedora 40` 上测试过
+
+目前本项目未实现 `compile_commands.json` 来进行 CMake 或 Makefile 项目的补全
