@@ -140,7 +140,32 @@ nvim
 
 所有功能均为第三方开源插件，本项目只将功能组合。除以上例举外，还引用了许多其他开源项目
 
+# 快捷键
+
+| 按键      | 功能                 |
+| --------- | -------------------- |
+| ztt       | 打开或关闭任务管理器 |
+| zto       | 执行任务             |
+| ztc       | 执行命令             |
+| ztn       | 创建新标签页         |
+| z<tab>    | 切换标签页           |
+| zv        | 显示语法树           |
+| z <down>  | 切换到下方的窗格     |
+| z<up>     | 切换到上方的窗格     |
+| z<left>   | 切换到左侧的窗格     |
+| z<right>  | 切换到右侧的窗格     |
+| zb        | 打开缓冲区浏览器     |
+| zs        | 文件搜索             |
+| <space>rn | 重命名变量           |
+| zfm       | 格式化代码           |
+
+# 关于 tasks.json 兼容
+
+本配置，使用 `overseer.nvim` 来实现 兼容 `.vscode/tasks.json` 文件
+具体文档请查看: <https://github.com/stevearc/overseer.nvim>
+
 # 已知问题解决方案
+
 C/C++ 使用静态分析器为 `clangd`
 
 当你编写 C/C++ 代码时无法找到头文件
@@ -149,9 +174,7 @@ C/C++ 使用静态分析器为 `clangd`
 
 ```yaml
 CompileFlags:
-  Add: [
-    "-I/usr/include"
-  ]
+  Add: ["-I/usr/include"]
 
 Diagnostics:
   UnusedIncludes: None
